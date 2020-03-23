@@ -5,21 +5,34 @@ using UnityEngine;
 public class ColumnPool : MonoBehaviour
 {
 
-    public int columnPoolSize = 5;
-    public GameObject columnPrefab;
-    public float spawnRate = 4f;
-    public float columnMin = -3.5f;
-    public float columnMax = 1.5f;
+    [SerializeField] int columnPoolSize = 5;
+    [SerializeField] GameObject columnPrefabNormal;
+    [SerializeField] GameObject columnPrefabEasy;
+    
 
+    [SerializeField] float spawnRate = 4f;
+    [SerializeField] float columnMin = -3.5f;
+    [SerializeField] float columnMax = 1.5f;
+
+    private GameObject columnPrefab;
     private GameObject[] columns;
     private Vector2 objectPoolPosition = new Vector2(-15f, -25f);
     private float timeSinceLastSpawned;
-    private float spawnXPosition = 10f;
+    private float spawnXPosition = 12f;
     private int currentColumn = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        if (PlayerPrefsController.GetEasyToggle() == 1)
+        {
+            columnPrefab = columnPrefabEasy;
+        } else
+        {
+            columnPrefab = columnPrefabNormal;
+        }
+
         columns = new GameObject[columnPoolSize];
         for (int i = 0; i < columnPoolSize; i++)
         {

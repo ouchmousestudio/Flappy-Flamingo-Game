@@ -11,7 +11,7 @@ public class Bird : MonoBehaviour
     private Animator anim;
 
     [SerializeField] AudioClip deathSFX;
-    [SerializeField] [Range(0, 1)] float deathSFXVol = 0.4f;
+    [SerializeField] [Range(0, 1)] float deathSFXVol = 0.2f;
 
 
     // Start is called before the first frame update

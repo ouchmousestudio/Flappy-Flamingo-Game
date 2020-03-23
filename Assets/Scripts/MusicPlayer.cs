@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Awake()
-    {
-        SetUpSingleton();
-    }
+    AudioSource myAudioSource;
 
-    private void SetUpSingleton()
+    private void Start()
     {
-        if (FindObjectsOfType(GetType()).Length > 1)
+        myAudioSource = GetComponent<AudioSource>();
+
+        myAudioSource.volume = PlayerPrefsController.GetMasterVolume();
+
+    }
+    //Singleton
+    private void Awake()
+    {
+        int musicPlayers = FindObjectsOfType<MusicPlayer>().Length;
+        if (musicPlayers > 1)
         {
             Destroy(gameObject);
         }
@@ -21,4 +26,10 @@ public class MusicPlayer : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+
+    public void SetVolume(float volume)
+    {
+        myAudioSource.volume = volume;
+    }
 }
+

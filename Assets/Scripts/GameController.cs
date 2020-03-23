@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,8 +8,10 @@ public class GameController : MonoBehaviour
     public static GameController instance;
 
     public GameObject gameOverText;
+    public GameObject highScoreObj;
     public bool gameOver = false;
     public Text scoreText;
+    public Text highScoreText;
     private bool canContinue = false;
 
     private int score = 0;
@@ -31,10 +32,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOver == true && Input.GetMouseButtonDown(0) && canContinue == true)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        //if (gameOver == true && Input.GetMouseButtonDown(0) && canContinue == true)
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //}
     }
     public void BirdScored()
     {
@@ -48,8 +49,19 @@ public class GameController : MonoBehaviour
 
     public void BirdDied()
     {
+
         gameOverText.SetActive(true);
-        StartCoroutine(DeathDelay(1f));
+        highScoreObj.SetActive(true);
+        if (score > PlayerPrefsController.GetHighScore() && PlayerPrefsController.GetEasyToggle() ==0)
+        {
+            PlayerPrefsController.SetHighScore(score);
+            highScoreText.text = "High Score : " + score.ToString();
+        }
+        else
+        {
+            highScoreText.text = "High Score : " + PlayerPrefsController.GetHighScore().ToString();
+        }
+        StartCoroutine(DeathDelay(0.2f));
     }
 
     IEnumerator DeathDelay(float delayTime)
