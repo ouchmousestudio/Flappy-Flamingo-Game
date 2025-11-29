@@ -1,0 +1,17 @@
+{
+"companyName": "OuchMouseStudio",
+"productName": "Flappy Flamingo",
+"productVersion": "1.2",
+"dataUrl": "FlappyFlamingo.data.unityweb",
+"wasmCodeUrl": "FlappyFlamingo.wasm.code.unityweb",
+"wasmFrameworkUrl": "FlappyFlamingo.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"backgroundUrl": "FlappyFlamingo.jpg",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#FFFFFF",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.3.5f1"
+}

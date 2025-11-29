@@ -32,10 +32,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (gameOver == true && Input.GetMouseButtonDown(0) && canContinue == true)
-        //{
-        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //}
+
     }
     public void BirdScored()
     {

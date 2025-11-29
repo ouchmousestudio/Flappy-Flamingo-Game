@@ -1202,6 +1202,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2588940114168803634, guid: d346914402e0e4ba3b062dc83b0f576d,
+        type: 3}
+      propertyPath: m_Text
+      value: Flapping Flamingo
+      objectReference: {fileID: 0}
     - target: {fileID: 2588940114457060023, guid: d346914402e0e4ba3b062dc83b0f576d,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
