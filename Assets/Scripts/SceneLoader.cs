@@ -36,10 +36,10 @@ public class SceneLoader : MonoBehaviour
         //Level selector
         if (PlayerPrefsController.GetRainToggle() == 1)
         {
-            randomScene = Random.Range(1, 4);
+            randomScene = Random.Range(1, 5);
         } else
         {
-            randomScene = Random.Range(1, 3);
+            randomScene = Random.Range(1, 4);
         }
 
         SceneManager.LoadScene(randomScene);
